@@ -1,4 +1,4 @@
-#Тестовое задание(Таблица курсов за последний год)
+#Test task(Table of currencies rate for past year)
 # courses-table
 
 ## Project setup
