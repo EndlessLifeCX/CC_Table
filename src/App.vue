@@ -1,17 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+<h1>Currency Table</h1>
+    <v-table  v-bind:currency_data="CURRENCY"   />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+import {mapActions,mapGetters} from 'vuex'
+import  vTable from './components/v-table'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    vTable
+  },
+  data: () =>{
+    return{
+
+    }
+},
+  computed:{
+    ...mapGetters([
+      'CURRENCY'
+    ])},
+  methods:{
+    ...mapActions([
+      'GET_EXCHANGE_RATE'
+    ])
+  },
+  mounted() {
+    this.GET_EXCHANGE_RATE()
   }
 }
 </script>
@@ -19,10 +37,15 @@ export default {
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-size: 0.8em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 30px;
+  scroll-behavior: smooth;
+
+
+
 }
 </style>
